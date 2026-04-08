@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maré Mansa | Loja Oficial Menswear & Beach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --sand: #fbf9f6; --navy: #1a2a3a; --gold: #c5a059; --white: #ffffff; --light-gray: #f4f4f4; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--sand); color: var(--navy); line-height: 1.6; overflow-x: hidden; }
+        
+        /* Banner de Desconto (Topo) */
+        .discount-banner { background-color: var(--navy); color: var(--white); text-align: center; padding: 10px; font-size: 0.8rem; letter-spacing: 1px; font-weight: 600; }
+        .discount-banner strong { color: var(--gold); }
+
+        /* Navbar */
+        nav { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo-container { display: flex; align-items: center; text-decoration: none; color: var(--navy); }
+        .logo-icon { width: 40px; height: 40px; margin-right: 10px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        
+        .nav-social { display: flex; gap: 20px; font-size: 1.2rem; }
+        .nav-social a { color: var(--navy); transition: 0.3s; text-decoration: none; }
+        .nav-social a:hover { color: var(--gold); transform: scale(1.1); }
+
+        /* Hero Section */
+        .hero { height: 70vh; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1520633011811-6a633b12850f?q=80&w=2070&auto=format&fit=crop') center/cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); text-align: center; padding: 20px; }
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 15px; font-style: italic; font-weight: 400; }
+        .hero p { font-weight: 200; font-size: 1.2rem; letter-spacing: 1px; }
+
+        /* Section Titles */
+        .section-title { text-align: center; padding: 80px 20px 50px; background-color: var(--white); }
+        .section-title h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; position: relative; display: inline-block; color: var(--navy); }
+        .section-title h3::after { content: ''; width: 60px; height: 1px; background: var(--gold); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+        .section-title p { margin-top: 25px; color: #7f8c8d; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300; }
+
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 5% 80px; max-width: 1400px; margin: 0 auto; }
+        .product-card { background: var(--white); border-radius: 2px; overflow: hidden; transition: 0.4s ease; cursor: pointer; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        
+        .product-image { height: 400px; background-color: var(--light-gray); overflow: hidden; position: relative; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .product-card:hover .product-image img { transform: scale(1.08); }
+        
+        /* Tag Jovem */
+        .tag-jovem { position: absolute; top: 15px; left: 15px; background: var(--gold); color: var(--white); padding: 5px 12px; font-size: 0.6rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; border-radius: 20px; z-index: 10; }
+
+        .product-info { padding: 25px; text-align: center; }
+        .product-category { font-size: 0.7rem; text-transform: uppercase; color: #95a5a6; letter-spacing: 2px; margin-bottom: 8px; font-weight: 400; }
+        .product-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 12px; color: var(--navy); font-weight: 400; }
+        .product-price { font-weight: 600; font-size: 1.1rem; color: var(--navy); margin-bottom: 20px; }
+        
+        .buy-btn { display: block; width: 100%; padding: 15px; background: var(--navy); color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; border-radius: 2px; }
+        .buy-btn:hover { background: var(--gold); }
+
+        /* Footer */
+        footer { background: var(--navy); color: var(--white); padding: 80px 5%; text-align: center; }
+        .footer-logo-icon { width: 60px; height: 60px; margin-bottom: 20px; opacity: 0.8; }
+        .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .footer-social { display: flex; justify-content: center; gap: 30px; font-size: 1.5rem; margin: 30px 0; }
+        .footer-social a { color: var(--white); opacity: 0.7; transition: 0.3s; text-decoration: none; }
+        .footer-social a:hover { opacity: 1; color: var(--gold); }
+        .copyright { margin-top: 40px; opacity: 0.4; font-size: 0.75rem; letter-spacing: 1px; font-weight: 200; }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2.5rem; }
+            .section-title h3 { font-size: 2rem; }
+            .product-image { height: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="discount-banner">
+    BEM-VINDO À MARÉ: USE O CUPOM <strong>BEMVINDO10</strong> E GANHE 10% OFF NA PRIMEIRA COMPRA!
+</div>
+
+<nav>
+    <a href="#" class="logo-container">
+        <img src="https://i.imgur.com/8N4N8fW.png" alt="Maré Mansa Logo" class="logo-icon">
+        <div class="logo-text">Maré Mansa</div>
+    </a>
+    <div class="nav-social">
+        <a href="https://instagram.com/SEUPERFIL" target="_blank" title="Siga no Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@SEUPERFIL" target="_blank" title="Siga no TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h2>Elegância que flui.</h2>
+    <p>Sinta a leveza do Ceará em cada peça.</p>
+</section>
+
+<div class="section-title">
+    <h3>Os Clássicos da Maré</h3>
+    <p>Nossa curadoria premium em linho e fibras naturais para o homem contemporâneo.</p>
+</div>
+
+<div class="product-grid">
+    <div class="product-card">
+        <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1480&auto=format&fit=crop" alt="Camisa de Linho Off-White">
+        </div>
+        <div class="product-info">
+            <p class="product-category">Camisaria Premium</p>
+            <h4 class="product-name">Camisa Linho Off-White</h4>
+            <p class="product-price">R$ 289,90</p>
+            <a href="
