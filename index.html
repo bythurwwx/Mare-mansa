@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maré Mansa | Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --sand: #fbf9f6; --navy: #1a2a3a; --gold: #c5a059; --white: #ffffff; --dark: #0f171f; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--sand); color: var(--navy); overflow-x: hidden; }
+
+        /* HEADER & NAVIGATION */
+        header { background: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .top-bar { background: var(--dark); color: white; text-align: center; padding: 8px; font-size: 0.7rem; letter-spacing: 2px; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; max-width: 1400px; margin: 0 auto; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+        
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links li a { text-decoration: none; color: var(--navy); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; cursor: pointer; }
+        .nav-links li a:hover { color: var(--gold); }
+
+        .nav-icons { display: flex; gap: 20px; font-size: 1.1rem; }
+        .nav-icons i { cursor: pointer; transition: 0.3s; }
+        .nav-icons i:hover { color: var(--gold); }
+
+        /* SEÇÕES DO SITE */
+        .page-section { display: none; min-height: 80vh; animation: fadeIn 0.5s ease; }
+        .active-section { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* HOME / HERO */
+        .hero { height: 85vh; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1600&q=80') center/cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 4rem; font-style: italic; margin-bottom: 20px; }
+        .cta-btn { padding: 15px 40px; background: white; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.4s; border: none; cursor: pointer; }
+        .cta-btn:hover { background: var(--navy); color: white; }
+
+        /* COLEÇÕES GRID */
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .card { background: white; transition: 0.4s; position: relative; cursor: pointer; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 450px; object-fit: cover; }
+        .card-body { padding: 20px; text-align: center; }
+        .card-body h4 { font-family: 'Playfair Display', serif; margin-bottom: 10px; font-size: 1.2rem; }
+        .price { color: var(--gold); font-weight: 600; }
+
+        /* SOBRE NOS */
+        .about-content { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-image { flex: 1; min-width: 300px; height: 500px; background: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=80') center/cover; }
+
+        /* FOOTER */
+        footer { background: var(--dark); color: white; padding: 80px 5%; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; }
+        .footer-socials { font-size: 1.5rem; display: flex; justify-content: center; gap: 20px; }
+        .footer-socials a { color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">USE O CUPOM <b>BEMVINDO10</b> E GANHE 10% DE DESCONTO</div>
+
+    <header>
+        <nav>
+            <div class="logo" onclick="showSection('home')">Maré Mansa</div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('home')">HOME</a></li>
+                <li><a onclick="showSection('colecoes')">COLEÇÕES</a></li>
+                <li><a onclick="showSection('sobre')">NOSSA HISTÓRIA</a></li>
+                <li><a onclick="showSection('contato')">CONTATO</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home" class="page-section active-section">
+        <section class="hero">
+            <h2>Elegância que Flui</h2>
+            <p style="margin-bottom: 30px; letter-spacing: 2px;">O MELHOR DA MODA PRAIANA NO CEARÁ</p>
+            <button class="cta-btn" onclick="showSection('colecoes')">VER COLEÇÃO</button>
+        </section>
+        
+        <div class="container">
+            <h3 style="text-align: center; font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 50px;">Lançamentos de Verão</h3>
+            <div class="grid">
+                <div class="card" onclick="alert('Indo para Camisa de Linho...')">
+                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=500&q=80" alt="Linho">
+                    <div class="card-body">
+                        <h4>Camisa Linho Off</h4>
+                        <p class="price">R$ 289,90</p>
+                    </div>
+                </div>
+                <div class="card" onclick="alert('Indo para Bermuda Alfaiataria...')">
+                    <img src="https://images.unsplash.com/photo-1621072156002-e2fcced0b170?auto=format&fit=crop&w=500&q=80" alt="Bermuda">
+                    <div class="card-body">
+                        <h4>Bermuda Tailor</h4>
+                        <p class="price">R$ 197,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="colecoes" class="page-section">
+        <div class="container">
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Explorar Coleções</h2>
+            <div class="grid">
+                <div class="card" style="height: 300px; background: #eee; display: flex; align-items: center; justify-content: center; font-weight: bold;">LINHO</div>
+                <div class="card" style="height: 300px; background: #ddd; display: flex; align-items: center; justify-content: center; font-weight: bold;">MARÉ JOVEM</div>
+                <div class="card" style="height: 300px; background: #ccc; display: flex; align-items: center; justify-content: center; font-weight: bold;">ACESSÓRIOS</div>
+                <div class="card" style="height: 300px; background: #bbb; display: flex; align-items: center; justify-content: center; font-weight: bold;">OFF-SEASON</div>
+            </div>
+        </div>
+    </main>
+
+    <main id="sobre" class="page-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image"></div>
+                <div class="about-text">
+                    <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 20px;">Desde as dunas do Ceará.</h2>
+                    <p>A Maré Mansa nasceu da paixão pelo litoral e pela necessidade de um guarda-roupa que acompanhasse o ritmo de vida praiano com elegância.</p>
+                    <br>
+                    <p>Cada peça em linho é selecionada para garantir frescor, durabilidade e sofisticação.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="contato" class="page-section">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Estamos aqui para você.</h2>
+            <p>Atendimento exclusivo via WhatsApp e Redes Sociais.</p>
+            <br>
+            <a href="https://wa.me/SEUNUMERO" class="cta-btn" style="background: var(--navy); color: white;">FALAR COM CONSULTOR</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="logo" style="color: white; margin-bottom: 20px;">Maré Mansa</div>
+        <div class="footer-links">
+            <a onclick="showSection('home')" style="cursor: pointer;">Home</a>
+            <a onclick="showSection('colecoes')" style="cursor: pointer;">Produtos</a>
+            <a onclick="showSection('contato')" style="cursor: pointer;">Ajuda</a>
+        </div>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="margin-top: 40px; opacity: 0.3;">© 2026 Maré Mansa Menswear.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Esconde todas as seções
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // Mostra a seção clicada
+            document.getElementById(sectionId).classList.add('active-section');
+            
+            // Rola para o topo suavemente
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
